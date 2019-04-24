@@ -1,0 +1,7 @@
+
+[Idris-Cam]
+backend = "python"
+modules = [
+  "test.idr"
+]
+
