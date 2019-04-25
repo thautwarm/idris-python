@@ -1,0 +1,16 @@
+README.rst
+setup.py
+idris_python/__init__.py
+idris_python/abstract_machine.py
+idris_python/cli.py
+idris_python/idris_apis.py
+idris_python/loader.py
+idris_python/read_ir.py
+idris_python/runtime.py
+idris_python.egg-info/PKG-INFO
+idris_python.egg-info/SOURCES.txt
+idris_python.egg-info/dependency_links.txt
+idris_python.egg-info/entry_points.txt
+idris_python.egg-info/not-zip-safe
+idris_python.egg-info/requires.txt
+idris_python.egg-info/top_level.txt

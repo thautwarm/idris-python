@@ -83,3 +83,13 @@ Following example just revealed that I've alredy implmented such a big task.
             let s = unsafe . the (Boxed String) $ s in
             let args = unsafe . the (FHVect [_, _]) $ [obj, toText s] in
             unsafeCall !getattr' args
+
+
+You might got
+
+.. code ::
+
+   [1]
+   0.99
+
+If you run it as a file with command ``idris-python``.

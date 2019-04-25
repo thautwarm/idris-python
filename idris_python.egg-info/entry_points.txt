@@ -1,0 +1,4 @@
+[console_scripts]
+idris-python = idris_python.cli:idris_python_run
+run-cam = idris_python.cli:cam_run
+
