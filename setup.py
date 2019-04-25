@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 from datetime import datetime
 from pathlib import Path
 
-with Path('README.md').open() as readme:
+with Path('README.rst').open() as readme:
     readme = readme.read()
 
 setup(
@@ -13,13 +13,17 @@ setup(
     description=
     "Loader for a kind of Idris IR.",  # a conceise introduction of your project
     long_description=readme,
-    long_description_content_type="text/markdown",
     license='bsd3',
     url='https://github.com/thautwarm/idris-python',
     author='thautwarm',
     author_email='twshere@outlook.com',
     packages=find_packages(),
-    entry_points={"console_scripts": []},
+    entry_points={
+        "console_scripts": [
+            "idris-python=idris_python.cli:idris_python_run",
+            "run-cam=idris_python.cli:cam_run"
+        ]
+    },
     # above option specifies commands to be installed,
     # e.g: entry_points={"console_scripts": ["yapypy=yapypy.cmd.compiler"]}
     install_requires=['wisepy2', 'toml'],

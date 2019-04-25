@@ -179,7 +179,7 @@ def make_funcs_from_session(link_session):
     def get_module(m: IdrisStr):
         m = to_text(m)
         seps = m.split(".")[0]
-        fromlist = [seps[0], ] if len(seps) is 1 else ()
+        fromlist = [seps[0], ] if len(seps) is not 1 else ()
         return __import__(m, fromlist=fromlist)
 
     return locals()

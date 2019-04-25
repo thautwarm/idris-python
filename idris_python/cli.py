@@ -3,18 +3,24 @@ import sys
 from idris_python.loader import load_cam, LinkSession
 from subprocess import Popen, PIPE
 from pathlib import Path
-import toml
 from wisepy2 import wise
+import toml
+import tempfile
 
 
 @wise
-def idris_python(main_file_or_project_entry: str, packages: str = "cam", idris: "idris executable path" = "idris",
-                 o: "output .cam file" = ""):
+def idris_python(main_file_or_project_entry: str,
+                 packages: str = "cam",
+                 idris: "idris executable path" = "idris",
+                 o: "output .cam file" = "<nocam>"):
     """
     You can specify multiple packages by
         idris-python --packages "cam base effect"
     """
     packages = (e.strip() for e in packages.split(' '))
+    out_cam = o != "<nocam>"
+    if not out_cam:
+        o = tempfile.mkstemp(suffix='.cam')[1]
     p = Path(main_file_or_project_entry)
     if p.suffix == '.idr':
         ins = [str(p.absolute())]
@@ -24,7 +30,8 @@ def idris_python(main_file_or_project_entry: str, packages: str = "cam", idris: 
             config = toml.load(f)
 
         config = config['idris-cam']
-        assert config.get('backend', "python") == "python", "The backend is specified"
+        assert config.get('backend',
+                          "python") == "python", "The backend is specified"
         modules = config['modules']
 
         p: Path = p.parent
@@ -33,16 +40,28 @@ def idris_python(main_file_or_project_entry: str, packages: str = "cam", idris: 
         for m in modules:
             ins.append(str(p.joinpath('src', *m.split('.'))))
 
-    proc = Popen([idris, '--codegen', 'cam', *ins, *(('-o', o) if o else ()), '-p', *packages, ], stdout=PIPE,
+    proc = Popen([
+        idris,
+        '--codegen',
+        'cam',
+        *ins,
+        '-o',
+        o,
+        '-p',
+        *packages,
+    ],
+                 stdout=PIPE,
                  stderr=PIPE)
 
     stdout, stderr = proc.communicate(timeout=30)
-    print(stdout)
+    stdout = stdout.decode()
+    if stdout:
+        print(stdout)
     if proc.returncode is not 0:
-        print(stderr)
+        print(stderr.decode())
         return 1
-    if not o:
-        common_abstract_machine_python_loader(o)
+    if not out_cam:
+        common_abstract_machine_python_loader([o])
     return 0
 
 
