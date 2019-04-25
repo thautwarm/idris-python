@@ -10,9 +10,10 @@ Install
 ================
 
 
-```
-pip install idris-python
-```
+.. code ::
+
+    pip install idris-python
+
 
 Usage
 ====================
