@@ -46,9 +46,10 @@ Usage
     :width: 90%
     :align: center
 
-## Example
+Example
+===========================
 
-Quite verbose for the lack of encapsulations, not a good example but I'm so busy..
+Quite verbose for the lack of encapsulations, not a good example but I'm too busy to work for this.
 
 Following example just revealed that I've alredy implmented such a big task.
 
