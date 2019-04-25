@@ -20,6 +20,8 @@ def write_str(io, a):
 def unsafe_call(f, args):
     return f(*args)
 
+def identity(x):
+    return x
 
 def get_runtime(link_session):
     dep = make_funcs_from_session(link_session)
@@ -60,8 +62,9 @@ def get_runtime(link_session):
         'prim-sle': operator.le,
         'prim-sgt': operator.gt,
         'prim-sge': operator.ge,
-        'prim-and': operator.
-        and_,  # not sure the idris one is bitwise operation or logic operation.
+        'prim-sext': identity,
+        'prim-zext': identity,
+        'prim-and': operator.and_,  # not sure the idris one is bitwise operation or logic operation.
         'prim-or': operator.or_,
 
         # STR METHOD1
@@ -123,5 +126,5 @@ def get_runtime(link_session):
         "builtin-module_property": getattr,
         "builtin-get_module": dep['get_module'],
         "builtin-unsafe_call": unsafe_call,
-        "builtin-identity": lambda x: x
+        "builtin-identity": identity
     }
