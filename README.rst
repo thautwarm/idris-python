@@ -9,6 +9,20 @@ Finally, we reached dependent types in Python community.
 Install
 ================
 
+Firstly you should clone `Idris-Cam <https://github.com/thautwarm/idris-cam/>`_ and install
+it:
+
+.. code ::
+
+   git clone https://github.com/thautwarm/idris-cam/
+   cd idris-cam
+   stack build
+   stack install        # install idris-codegen-cam
+   stack install idris  # install idris
+   cd libs
+   idris --install cam.ipkg # install cam modules for idris
+
+Then install ``idris-python``,
 
 .. code ::
 
