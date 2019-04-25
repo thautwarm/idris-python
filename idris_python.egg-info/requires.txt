@@ -1,2 +1,0 @@
-wisepy2
-toml
