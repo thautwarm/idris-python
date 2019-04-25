@@ -7,7 +7,7 @@ with Path('README.rst').open() as readme:
 
 setup(
     name='idris-python',
-    version="0.1",
+    version="0.2",
     keywords="Idris, Dependent Types, Type Safety, Compiler",
     # keywords of your project that separated by comma ","
     description=

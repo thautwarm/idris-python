@@ -1,3 +1,6 @@
+.. image:: https://img.shields.io/pypi/v/idris-python.svg
+    :target: https://pypi.python.org/pypi/idris-python
+
 idris-cam
 ==============
 
