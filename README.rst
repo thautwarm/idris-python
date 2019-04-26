@@ -1,10 +1,22 @@
 .. image:: https://img.shields.io/pypi/v/idris-python.svg
     :target: https://pypi.python.org/pypi/idris-python
 
-idris-cam
+idris-Python
 ==============
 
-Finally, we reached dependent types in Python community.
+Finally, we reached dependent types in Python side.
+
+Requirements
+===============
+
+* `The Haskell Tool Stack <https://www.haskellstack.org/>`_
+
+* Python 3.7+
+
+P.S: For users of Python3.7-, you can make a PR to remove the usages of
+``dataclass`` and ``from __future__ import annotations`` to support
+almost all Python versions, which I don't have time and motivations to deal
+with.
 
 Install
 ================

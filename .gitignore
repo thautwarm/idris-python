@@ -1,2 +1,11 @@
+# py
 **__pycache__
+
+# ide/editor
+.vscode/
+.idea/
+
+# emacs
 **~
+**#*#
+**.#*
